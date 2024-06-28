@@ -1,26 +1,26 @@
-let num1 = Number(prompt("Insira algum numero"))
-let num2= Number(prompt("Insira outro numero"))
-let operacao = Number(prompt(" Insira alguma operação -, + ,* , / , %"))
+let num1 = Number(prompt('Digite um algum numero'))
 
-let resultado 
+let num2 = Number(prompt('Digite outro numero'))
 
-switch(resultado){
-    case resultado:     
+let operacao = prompt('Digite a operação -,+,*,/,%')
+
+switch(operacao){
+    case '+':
         console.log(num1 + num2)
-        break
-    case resultado:
+            break 
+    case '-':
         console.log(num1 - num2)
-        break
-    case resultado:
+            break
+    case '*':
         console.log(num1 * num2)
-        break
-    case resultado:
-        console.log(num1 % num2)
-         break
-    case resultado:
+            break  
+    case '/':
         console.log(num1 / num2)
-         break
+            break 
+    case '%':
+        console.log(num1 % num2)
+            break 
     default:
-        console.log("teve algum erro")
+        console.log('Deu algo errao, tente novamente')
         break
 }
