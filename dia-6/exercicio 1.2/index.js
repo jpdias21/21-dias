@@ -1,3 +1,3 @@
-for(let num = 0 ; num <= 50 ; num += 5){
-        console.log(num)
+for(let num1 = 0 ; num1 <= 50 ; num1 += 5 ){
+        console.log(num1)
 }
