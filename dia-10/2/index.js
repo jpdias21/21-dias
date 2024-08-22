@@ -1,8 +1,11 @@
+let pedindoNumero = Number(prompt('Digite um numero inteiro :'))
+
 let numero = []
 
-for(let i = 0 ; i <= 10 ; i++){
-    let num1 = parseInt(prompt('Digite um algum numero positivo :'))
-    for(let num2 = -1 ; num2 <= num1 ; num2 += num2)
-    numero.push(num1)
+numero[0] = pedindoNumero - 1
+numero[1] = pedindoNumero
+
+for(let i = 2 ; i < 10 ; i++){
+    numero[i] = numero[i -1] + numero[i - 2]
 }
-console.log(num1)
+console.log(numero)
