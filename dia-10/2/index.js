@@ -1,11 +1,10 @@
-let pedindoNumero = Number(prompt('Digite um numero inteiro :'))
+let numeroFibonacci = []
+let numeroUsuario = parseInt(prompt('Digite um numero positivo :'))
 
-let numero = []
+numeroFibonacci[0] = numeroUsuario - 1
+numeroFibonacci[1] = numeroUsuario
 
-numero[0] = pedindoNumero - 1
-numero[1] = pedindoNumero
-
-for(let i = 2 ; i < 10 ; i++){
-    numero[i] = numero[i -1] + numero[i - 2]
+for(let i = 2; i <= 10 ; i++){
+    numeroFibonacci[i] = numeroFibonacci[i -2] + numeroFibonacci[i -1]
 }
-console.log(numero)
+console.log(numeroFibonacci)
