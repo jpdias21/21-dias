@@ -1,11 +1,8 @@
-let num1 = []
+let recebe = []
 
-for(let i = 0 ; i < 10 ; i++){
-   let obtendoNumero = parseInt(prompt('Digite um numero'))
-   num1.push(obtendoNumero)
+for(let i = 0 ; i <= 5 ; i++){
+   let numeros = Number(prompt('Digite um numero'))
+   recebe.push(numeros)
 }
-console.log('o numero de forma que voce digitou ' + num1)
-
-num1.reverse()
-console.log('Os numeros de forma contraria ' + num1)
-
+console.log('Numeros de entrada :' + recebe )
+console.log('Numeros de saida : ' + recebe.reverse())

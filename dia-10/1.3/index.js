@@ -1,11 +1,10 @@
-let numero = []
-let opcao = Number(prompt('digite quantos numeros vc quer inserir :'))
+let recebe = []
 
-for(let num1 = 0 ; num1 <= opcao ; num1 ++){
-    let numeros = Number(prompt('Digite um numero'))
-    numero.push(numeros)
+let quantidade = Number(prompt('Quantas numeros voce deseja inserir :')) 
+
+for(let i = 0 ; i <= quantidade ; i ++){
+    let numeros = Number(prompt('Digite os numeros :'))
+    recebe.push(numeros)
 }
-console.log('Os numeros que voce digitou sao ' + numero )
-
-numero.reverse()
-console.log('os numeros que voce digitou de forma contraria ' + numero)
+console.log('Os numeros que voce digitou :' + recebe)
+console.log('Os numeros de forma reversa :' + recebe.reverse())

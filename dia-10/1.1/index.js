@@ -1,11 +1,10 @@
-let numero = []
+let recebe = []
 
-for(let i = 0 ; i <=10 ; i++){
-    let obtendoNumero = parseInt(prompt('Isira algum numero'))
-    numero.push(obtendoNumero)
-
-    if(obtendoNumero < 0){
-        console.log('Voce digitou um numero negativo')
+for(let i = 0; i < 10 ; i++){
+    let numeros = Number(prompt('Digite um numero'))
+    recebe.push(numeros)
+    
+    if(numeros <=  0){
+        console.log('Voce digitou numero negativo')
     }
 }
-console.log('Voce digitou esses numeros ' + numero)
