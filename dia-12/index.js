@@ -2,61 +2,58 @@ let condicao = true
 let nomes = []
 let senhas = []
 
-do{
-let opcao = prompt('Voce deseja \n1.Cadastrar \n2.Login \n3.Excliur \n4.Encerrar')
+do{let cadastro = prompt('Voce deseja \n1.Cadastrar \n2.Login \n3.Excluir \n4.Encerrar')
+   
+switch(cadastro){
+    case '1' :
+        let cadastroNome = prompt('Cadastre seu nome seu nome :')
+        let cadastroSenha = parseInt(prompt('Cadastre sua senha :'))
+        nomes.push(cadastroNome)
+        senhas.push(cadastroSenha)
+        console.log('Cadastro feito com sucesso.')
+    break
 
-switch(opcao){
-    case '1'  :
-        let usuarioCadastrarLogin = prompt('Digete seu nome :')
-        let usuarioCadastrarSenha = parseInt(prompt('Digite sua senha :'))
-        nomes.push(usuarioCadastrarLogin)
-        senhas.push(usuarioCadastrarSenha)
-        console.log('Voce cadastrou seu login e senha')
-        break
     case '2' :
-    let usuariLogin = prompt('Digite seu nome  de login :')
-    let usuariologinSenha = parseInt(prompt('Digite sua senha  de login:'))
-    let loginEncontrado = false
-    
-    for(let i = 0 ; i < nomes.length ; i++){
-        if(usuariLogin === nomes[i] && usuariologinSenha  === senhas[i]){
-            console.log('Sucesso, voce conseguiu logar.')
-            loginEncontrado = true
-            break
-        
-        }
-        
-    }  if (!loginEncontrado ){
-            console.log('Voce digitou o nome ou senha errado')
-        
-        }break 
-        
-
-    case '3'  :
-            
-    let usuarioExcluirlogin = prompt('Digite seu nome para escluir :')
-    let usuarioExcluirSenha = parseInt(prompt('Digite sua senha para excluir : '))
-    let usuarioEncontrado = false  
-    for(let i = 0 ; i < nomes.length ; i++){
-        if(usuarioExcluirlogin === nomes[i] && usuarioExcluirSenha  === senhas[i]){
-            nomes.splice(i,1)
-            senhas.splice(i,1)
-            console.log('Parabens, excluimos o nome: ' + usuarioExcluirlogin + ' e a senha : ' + usuarioExcluirSenha)
-            usuarioEncontrado = true
-            break
-        }
-    } if(!usuarioEncontrado){
-            console.log('voce digitou algou de errado no nome ou senha : ')
-        }break  
-    case '4' :
-        console.log('Voce escolheu encerrar por aqui, obrigado')
+        let loginNomes = prompt('Digite seu nome de cadastro :')
+        let loginSenhas = parseInt(prompt('Digite sua senha de cadastro'))
+        let loginFeito = false
+            for(let i = 0 ; i <= nomes.length ; i++){
+                if(loginNomes === nomes[i] && loginSenhas === senhas[i]){
+                    console.log('Login feito com sucesso.')
+                    loginFeito = true
+                    break    
+                }
+            } 
+            if(!loginFeito){
+                console.log('Voce digitou seu nome ou senha errado')
+            } break
+    case '3' : 
+        let excluirLogin = prompt('Digite seu nome de login :')
+        let excluirSenha = parseInt(prompt('Digite sua senha para excluir:'))
+        let excluiu = false
+        for(let i = 0 ; i < nomes.length ; i++){
+            if(excluirLogin === nomes[i] && excluirSenha === senhas[i]){
+                console.log('Retiramos seu nome : ' + excluirLogin + ' e sua senha :' + excluirSenha)
+                nomes.splice(i, 1)
+                senhas.splice(i, 1)
+                excluiu = true
+                break
+            }
+        }if(!excluiu){
+            console.log('Voce digitou o nome ou senha errado.')
+        }break
+    case '4': 
+    console.log('voce escolheu encerrar por aqui')
         condicao = false
         break
+    
     case undefined :
-        console.log('Deu algo errado')
+        if(undefined){
+            console.log('Aconteceu algum erro')
+        }
         break
-}
-}while(condicao)
+     } ////Encerrar o switch
 
+}while(condicao)
 console.log(nomes)
 console.log(senhas)
