@@ -5,8 +5,8 @@ let carro = prompt('Voce possui carro')
 
 if(idade < 18 || cartaDeMotoriata === 'nao'){
     console.log(nome + ', voce não pode dirigir')
-}else if(idade <= 18 && cartaDeMotoriata === 'sim' && carro ==='nao'){
-    console.log(nome +', voce pode dorogor mais não possui carro')
+}else if(idade >= 18 && cartaDeMotoriata === 'sim' && carro ==='nao'){
+    console.log(nome +', voce pode dirigir mais não possui carro')
 }else if(idade >= 18 && carta === 'sim' && carro === 'sim'){
     console.log(nome + ', você será o motorista')
 }
