@@ -15,8 +15,8 @@ class Hotel{
     } 
 }
 class Reserva{
-    constructor(IdDareserva, IdHotel, NomeDoresponsavel, diaEntrada, diaSaida ){
-        this.IdDareserva = IdDareserva
+    constructor(IdDaReserva, IdHotel, NomeDoresponsavel, diaEntrada, diaSaida ){
+        this.IdDaReserva = IdDaReserva
         this.IdHotel = IdHotel
         this.NomeDoresponsavel = NomeDoresponsavel
         this.diaEntrada = diaEntrada
@@ -26,8 +26,17 @@ class Reserva{
 
 
 function cadastro(cadastroHotel){
+    let categoriaDosHoteis = true
     let nomeDoHotel = prompt('Digite o nome do hotel :')
-    let categoriaDoHotel = prompt('Digite qual a categoria do hotel : \n1.Extrela \n2.Extrelas \n3.Estrelas \n4.Estrelas \n5.Extrelas')
+    let categoriaDoHotel 
+    do{
+        categoriaDoHotel = parseInt(prompt('Digite qual a categoria do hotel : \n1.Extrela \n2.Extrelas \n3.Estrelas \n4.Estrelas \n5.Extrelas'))
+        if(categoriaDoHotel > 5 || categoriaDoHotel === 0){
+            console.log('Digite apenas entre 1 e 5')
+        }else{
+            categoriaDosHoteis = false
+        }
+    }while(categoriaDosHoteis)
     let enderecoDoHotel = prompt('Digite o endereço do hotel :')
     let telefoneDoHotel = parseInt(prompt('Digite o telefone do hotel'))
     cadastroHotel = new Hotel(idDoHotel,nomeDoHotel, categoriaDoHotel, enderecoDoHotel, telefoneDoHotel)
@@ -74,25 +83,45 @@ function ProcuraReservaPeloHotel(idDoHotel) {
 }
 
 function ProcurarReservaPeloId(idDeUmaReserva) {
-            let reservaEncontrada = arrayReserva.find(r => r.IdDareserva === idDeUmaReserva)
-            if(reservaEncontrada){
-                let hotelEncontrado = arrayHotel.find(h => h.IdHotel === reservaEncontrada.IdHotel)
-                if(hotelEncontrado){
-                console.log(`Nome do hotel : ${hotelEncontrado.nome}`)
-                console.log(`Endereço : ${hotelEncontrado.endereco}`)
-                console.log(`Dia de entrada : ${reservaEncontrada.diaEntrada}`)
-                console.log(`Dia de saida : ${reservaEncontrada.diaSaida}`)
-            }else{
-                console.log('Este Hotel não existe')
-            }
-            }else{
-                console.log('Este Id não existe')
-            }
+    let reservaEncontrada = arrayReserva.find(r => r.IdDaReserva === idDeUmaReserva)
+    if(reservaEncontrada){
+        let hotelEncontrado = arrayHotel.find(h => h.IdHotel === reservaEncontrada.IdHotel)
+        if(hotelEncontrado){
+            console.log(`Nome do hotel : ${hotelEncontrado.Nome}`)
+            console.log(`Endereço : ${hotelEncontrado.Endereco}`)
+        }else{
+            console.log('Hotel não encontrado')
         }
-   
+        console.log(`Dia de entreda: ${reservaEncontrada.diaEntrada}`)
+        console.log(`Dia de saida : ${reservaEncontrada.diaSaida}`)
+    }else{
+        console.log(`O id da sua reserva não foi encontrado, digite novamente.`)
+    }
+    
+}
+//////====
+function ProcurarReservaPeloNome(nomeDoCliente) {
+    let nomeEncontrado = arrayReserva.find(n => n.NomeDoresponsavel === nomeDoCliente)
+    if(nomeEncontrado){
+        let hotelEncontrado = arrayHotel.find(h => h.IdHotel === nomeEncontrado.IdHotel)
+        if(hotelEncontrado){
+            console.log(`Hotel: ${hotelEncontrado.Nome}`)
+            console.log(`Endereço : ${hotelEncontrado.Endereco}` )
+        }else{
+            console.log(`Hotel não encontrado`)
+        }
+        console.log(`Dia de entrada : ${nomeEncontrado.diaEntrada}`)
+        console.log(`Dia de saida : ${nomeEncontrado.diaSaida}`)
 
+    }else{
+    console.log('Voce digitou o nome errado')
+    }
+    
+}
+
+//////==== 
 do{
-    let opcao = prompt('Escolha o opcâo que voce deseja: \n1.Cadastrar Hotel. \n2.Cadastrar Reserva \n3.Todas as reservas do Hotel \n4.Minhas Reservas \n5.Categoria do Hotel \n6.Atulizar Telefone \n7. Encerrar')
+    let opcao = prompt('Escolha o opcâo que voce deseja: \n1.Cadastrar Hotel. \n2.Cadastrar Reserva \n3.Todas as reservas do Hotel \n4.Ver a minha reserva \n5.Ver minha reserva pelo nome \n6.Atulizar Telefone \n7. Encerrar')
 
     switch(opcao){
         case '1' :
@@ -109,7 +138,9 @@ do{
         case '4':
             ProcurarReservaPeloId(parseInt(prompt('Digite seu Id de reserva:')))
             break
-
+        case '5' :
+            ProcurarReservaPeloNome(prompt('Digite seu nome para acharmos sua reserva'))
+            break
         case '7' :
             console.log('Voce escolheu parar por aqui')
             console.log(arrayHotel)
