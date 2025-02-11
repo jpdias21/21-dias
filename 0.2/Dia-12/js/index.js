@@ -25,10 +25,11 @@ let opcao = prompt(`Digite de voce deseja: \n1.Cadastrar \n2.Fazer login \n3.Exc
             for(let i = 0 ; i < nomes.length; i++){
                 if(nomeLogin === nomes[i] && senhaLogin === senhas[i]){
                     console.log('Login feito com sucesso')
+                    break
                    
                 }else if(nomeLogin === nomes[i] && senhaLogin !== senhas[i]){
                     console.log('A sua senha esta errada')
-                    
+                    break
                 }else if(nomeLogin !== nomes[i] ){
                     console.log('Nao tem nehum usuario com este nome')
                     
