@@ -12,10 +12,10 @@ function cadastro(){
 
 function login(){
     let nomeLogin = false
-    let ologin = prompt('Digite seu nome de login')
-    let osenha = prompt('Digite seu senha')
-    for(let i = 0 ; i < arrayNome.length; i++){
-        if(ologin === arrayNome[i] && osenha === arraySenha[i]){
+    let login = prompt('Digite seu nome ')
+    let senha = prompt('Digite seu senha')
+    for(let i = 0 ; i <= arrayNome.length; i++){
+        if(login === arrayNome[i] && senha === arraySenha[i]){
             console.log('Login feito com sucesso')
             nomeLogin = true
             break
@@ -42,7 +42,7 @@ function excluir(){
         }
     }
     if(excluiu === false){
-        console.log('Sua usuario e senha esta errado')
+        console.log('Sua usuario ou senha esta errado')
     }
 }
 while(continuar){

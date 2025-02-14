@@ -1,19 +1,58 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import './App.css';
 
-function ContadorComTitulo() {
-  const [contador, setContador] = useState(0);
+function App() {
+  
+  const [firstNumber, setFirstNumber] = useState(0)
+  const [secondNumber, setSecondNumber] = useState(0)
+  const [result, setResult] = useState(0)
 
-  // Atualiza o título da página sempre que o contador mudar
-  useEffect(() => {
-    document.title = `Você clicou ${contador} vezes`;
-  }, [contador]); // Roda toda vez que 'contador' mudar
-
+  const [clique, setClique]= useState(0)
   return (
-    <div>
-      <p>Você clicou {contador} vezes</p>
-      <button onClick={() => setContador(contador + 1)}>Clique aqui</button>
-    </div>
+    <>
+      <h1>
+        Calculadora
+      </h1>
+      <label>
+        Number 
+        <input
+        type='number' value={firstNumber}
+        onChange={event => setFirstNumber(event.target.value)}
+        />
+      </label>
+      <label>
+        Number 
+        <input
+        type='number' value={secondNumber} 
+        onChange={event => setSecondNumber(event.target.value)}
+        />
+      </label>
+      <span>Result : {result}</span>
+      <br/>
+      <button onClick={() => setResult(firstNumber + secondNumber)}>+</button>
+      <button onClick={() => setResult(firstNumber - secondNumber)}>-</button>
+      <button onClick={() => setResult(firstNumber / secondNumber)}>/</button>
+      <button onClick={() => setResult(firstNumber * secondNumber)}>x</button>
+
+      <br/>
+      <br/>
+     
+     <h2>Voce clicou : {clique}</h2>
+
+     <button onClick={()=> setClique(clique + 1)}>Clique aqui</button>
+
+    </>
   );
 }
 
-export default ContadorComTitulo;
+export default App;
+
+
+// useState(0)  Cria um estado que começa com o valor 0
+// onChange={event => setFirstNumber(...)}  Atualiza o valor do estado quando digita no input
+// onClick={() => setResult(firstNumber + secondNumber)}  Faz o cálculo da soma quando clica no botão
+// <span>Result: {result}</span>  Mostra o valor do resultado
+// <button>+</button> Botão que realiza a soma
+
+
+
