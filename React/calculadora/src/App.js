@@ -36,7 +36,7 @@ function App() {
 
       <br/>
       <br/>
-     
+    
      <h2>Voce clicou : {clique}</h2>
 
      <button onClick={()=> setClique(clique + 1)}>Clique aqui</button>
