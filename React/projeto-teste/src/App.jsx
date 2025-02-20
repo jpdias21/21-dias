@@ -1,9 +1,8 @@
 import './App.css'
 import Botao from './Components/Botao'
 import Opcoes from './Components/Opcoes'
-function App() {
-  
 
+function App() {
   return (
     <>
       <h1>Ola mundo</h1>
@@ -11,10 +10,8 @@ function App() {
       <Botao />
       <br />
       <Opcoes />
-      
     </>
   )
 }
-
 
 export default App

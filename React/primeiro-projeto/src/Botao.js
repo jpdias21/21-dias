@@ -11,7 +11,7 @@ let Botao = () =>{
     }
     
     const handleFrase = ()=>{
-        setFrase(frase + ' Joa Pedro')
+        setFrase(frase + 'Joao Pedro')
     }
 
     return (

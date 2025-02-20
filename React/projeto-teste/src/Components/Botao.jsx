@@ -1,24 +1,13 @@
-import { useState, useEffect } from "react"
+import useContador from "../Hooks/useContador";
 
+export default function Botao(){
+    const {contador, aumentar, diminuir} = useContador()
 
-
-function Botao (){
-    const [click, setClik] = useState(0)
-
-    useEffect(() => {
-        console.log(`Voce clicou ${click}`)
-    }, [click])
     return (
         <>
-        <span>Voce clicou em mim {click}</span>
-        <br />
-        <button onClick={()=> setClik(click + 1)}>Clique em mim</button>
-
+        <p>Este e o contador {contador}</p>
+        <button onClick={aumentar}>Aumentar</button>
+        <button onClick={diminuir}>Diminuir</button>
         </>
     )
 }
-
-
-
-
-export default Botao 
