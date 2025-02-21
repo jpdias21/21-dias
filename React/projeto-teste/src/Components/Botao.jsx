@@ -1,11 +1,11 @@
 import useContador from "../Hooks/useContador";
 
 export default function Botao(){
-    const {contador, aumentar, diminuir} = useContador()
+    const{contador , aumentar , diminuir} = useContador(0)
 
-    return (
+    return(
         <>
-        <p>Este e o contador {contador}</p>
+        <p>Contagem do contador {contador} </p>
         <button onClick={aumentar}>Aumentar</button>
         <button onClick={diminuir}>Diminuir</button>
         </>

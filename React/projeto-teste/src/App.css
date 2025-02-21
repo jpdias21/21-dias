@@ -40,3 +40,12 @@
 .read-the-docs {
   color: #888;
 }
+
+.nome-usuario{
+  font-weight: bold;
+}
+.imagem-usuario{
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
