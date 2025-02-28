@@ -1,71 +1,58 @@
 import { useState } from "react";
 
-export default function Calculadora({historico,setHistorico}){
+export default function Calculadora({historico, setHistorico}){
     const [numberOne, setNumberOne] = useState('')
-    const [secondNumber, setSecondNumber] = useState('')
+    const [numberTwo, setNumberTwo] = useState('')
     const [result, setResult] = useState('')
-    
 
-  let calculo ;
-  const num1 = parseInt(numberOne)
-  const num2 = parseInt(secondNumber)
-
-function Calculo(operadorEscolhido){
-    switch (operadorEscolhido) {
-    case '+':
-        calculo = num1 + num2
-        setResult(calculo)       
-        break;
-    
-    case '-':
-        calculo = num1 - num2
-
-        setResult(calculo)
-        break;
-    
-    case '/':
-        if(parseInt(secondNumber) === 0){
-            setResult('Nao e possivel dividir por zero')
-        }else(
-            calculo = num1 / num2 
-        )
-        setResult(calculo)
-     
-        break;
-    case '*':
-       calculo = num1 * num2
-       setResult (calculo)
-       
-        break;
-
-    default:
-        alert('Voce fez algo de errado')
-        break;
+    function calcular(operacao){
+        let num1 = parseInt(numberOne)
+        let num2 = parseInt(numberTwo)
+        let valor;
+        switch (operacao) {
+            case '+':
+               valor = num1 + num2
+               setResult(valor)
+                break;
+            case '-':
+                valor = num1 - num2
+               setResult(valor)
+               break
+            case '*':
+                valor = num1 * num2
+               setResult(valor)
+               break
+            case '/':
+                if(num1 === 0 || num2 === 0){
+                    alert('Nao tem como divir 0 ou por 0')
+                    return
+                }
+                valor = num1 / num2
+               setResult(valor)
+               break 
+            default:
+                alert('Aconteceu algo de errado')
+                break;
         }
-
-        setHistorico([...historico, `${numberOne} ${operadorEscolhido} ${secondNumber} = ${calculo}`])
-}
+        setHistorico([...historico, `${num1} ${operacao} ${num2} = ${valor}`])
+    }
 
     return(
         <>
-        <label className="label">
-        
-            <input type="number" value={numberOne} onChange={event => setNumberOne(event.target.value)} placeholder="Digite numero"/>
+        <label>
+            <input type="number" value={numberOne} onChange={(event) => setNumberOne(event.target.value)} />
         </label>
         <br />
         <label>
-            <input type="number" value={secondNumber} onChange={event => setSecondNumber(event.target.value)} placeholder="Digite numero"/>
+            <input type="number" value={numberTwo} onChange={(event) => setNumberTwo(event.target.value)} />
         </label>
         <br />
-        <button onClick={()=> Calculo('+')}>+</button>
-        <button onClick={()=> Calculo('-')}>-</button>
-        <button onClick={()=> Calculo('/')}>/</button>
-        <button onClick={()=> Calculo('*')}>x</button>
+        <button onClick={()=> calcular('+')}>+</button>
+        <button onClick={()=> calcular('-')}>-</button>
+        <button onClick={()=> calcular('*')}>*</button>
+        <button onClick={()=> calcular('/')}>/</button>
         <br />
         <p>Resultado : {result}</p>
-        <br />
-        
         </>
     )
-    
 }
