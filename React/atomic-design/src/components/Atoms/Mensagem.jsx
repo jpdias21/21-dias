@@ -1,7 +1,9 @@
-export default function Mensagem({mensagem}){
+
+export default function Mensagem({mensagemExibida}){
     return(
-        <>
-        <p>{mensagem}</p>
-        </>
+       <>
+       <p>{mensagemExibida}</p>
+       </>
+        
     )
 }

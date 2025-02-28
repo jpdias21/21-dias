@@ -1,10 +1,11 @@
-export default function Botao({onClick}){
 
-    return(
-        <>
+export default function Botao({onClick}){
+   
+   return(
+    <>
         <button onClick={onClick}>
-            Clique aqui
+        Clique para aparecer a mensagem
         </button>
-        </>
-    )
+    </>
+   )
 }
