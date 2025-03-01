@@ -1,11 +1,8 @@
+export default function Botao({onClick,children}){
 
-export default function Botao({onClick}){
-   
-   return(
-    <>
-        <button onClick={onClick}>
-        Clique para aparecer a mensagem
-        </button>
-    </>
-   )
+    return(
+        <>
+        <button onClick={onClick}>{children}</button>
+        </>
+    )
 }
