@@ -1,0 +1,24 @@
+.titulo{
+    font-size: 30px;
+}
+.input{
+    padding: 10px;
+    margin: 5px;
+}
+.button{
+    background-color: red;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.button:hover{
+    background-color: green;
+}
+.aparecerTexto{
+    font-size: 30px;
+    font-weight: bold;
+    color: darkturquoise;
+}
+
+.colorRed{
+    color: red;
+}

@@ -1,9 +1,9 @@
-
+import './Atoms.css'
 export default function Texto({children}){
 
     return(
         <>
-        <p>{children}</p>
+        <p className='aparecerTexto'>{children}</p>
         </>
     )
 }

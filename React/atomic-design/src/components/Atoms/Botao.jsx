@@ -1,8 +1,10 @@
-export default function Botao({onClick,children}){
+import './Atoms.css'
+
+export default function Botao({onClick, children}){
 
     return(
         <>
-        <button onClick={onClick}>{children}</button>
+        <button className='button' onClick={onClick}>{children}</button>
         </>
     )
 }

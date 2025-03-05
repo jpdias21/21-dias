@@ -1,0 +1,12 @@
+.FormularMensagem{
+    width: 70%; 
+    margin: auto;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    gap: 16px;
+}
+.textoExibido{
+    font-size: 30px;
+    color: pink;
+}

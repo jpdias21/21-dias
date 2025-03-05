@@ -1,4 +1,4 @@
-import FormularMensagem from "../components/Molecules/FormularMensagem";
+import TemplateFormulario from "../components/Templates/TemplateFormulario";
 
 
 function App() {
@@ -6,8 +6,7 @@ function App() {
 
     return (
         <>
-        <h1>Exemplo Atomic Design</h1>
-        <FormularMensagem/>
+        <TemplateFormulario/>
         </>
     );
 }

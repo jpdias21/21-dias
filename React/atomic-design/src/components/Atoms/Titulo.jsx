@@ -1,9 +1,9 @@
-
+import './Atoms.css'
 export default function Titulo({children}){
 
     return(
         <>
-        <h1>{children}</h1>
+        <h2 className='titulo'>{children}</h2>
         </>
     )
-}
+} 
