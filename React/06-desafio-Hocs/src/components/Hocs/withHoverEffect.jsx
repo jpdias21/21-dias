@@ -1,19 +1,20 @@
 import {useState} from 'react'
-function withHoverEffect(Componente){
+function withHoverEffect(NovoComponente){
 
     return(props) => {
-        const [estaDentro, setEstaDentro] = useState(false)
-        
-        const estaDentroInput = () =>{
-            setEstaDentro(true)
+        const [estaDentroMouse, setEstaDentroMouse] = useState(false)
+
+        const estaNoMouse = () =>{
+            setEstaDentroMouse(true)
         }
 
-        const naoEstaDentro = () =>{
-            setEstaDentro(false)
-        }
-    return <Componente onMouseEnter={estaDentroInput}  onMouseLeave={naoEstaDentro} estaDentro={estaDentro} {...props}/>
+        const noaoEstaNoMouse = () => {
+            setEstaDentroMouse(false)
+        }    
 
+        return <NovoComponente onMouseEnter={estaNoMouse}  onMouseLeave={noaoEstaNoMouse} estaDentroMouse={estaDentroMouse} {...props} />
     } 
+
 }
 
 export default withHoverEffect 
