@@ -1,3 +1,5 @@
+import Calculador from "../components/Calculador"
+
 // 4- Impoetacao de componente 
 import FirstComponent from "../components/FirstComponent"
 
@@ -56,10 +58,12 @@ function App() {
     commentsQty={9}
     tags={['Joao', 'Pedro', 'O melhor']}
     category={Category.Ts}
-    
     />
     <br />
     <State/>
+    <br />
+    <br />
+    <Calculador/>
     </>
   )
 }

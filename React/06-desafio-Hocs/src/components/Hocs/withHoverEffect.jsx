@@ -14,7 +14,7 @@ function withHoverEffect(NovoComponente){
 
         return <NovoComponente onMouseEnter={estaNoMouse}  onMouseLeave={noaoEstaNoMouse} estaDentroMouse={estaDentroMouse} {...props} />
     } 
-
+        
 }
 
 export default withHoverEffect 
