@@ -15,7 +15,7 @@ const AxiosPost = () => {
     axios.get("https://jsonplaceholder.typicode.com/posts")
     .then((event) =>{
       console.log('Dados recebidos', event)
-      setResponse(event.data)
+      setResponse(event.data.slice(0, 5))
     } )
     .catch((error) =>{
       console.error('Error na requicisao', error)

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+
 type Post = {
   id : number
   title : string
@@ -15,7 +16,7 @@ const FetchPost = () => {
       try {
         const response = await fetch("https://jsonplaceholder.typicode.com/posts")
         const data = await response.json()
-        setSalvarPost(data)
+        setSalvarPost(data.slice(0, 5))
       } catch (error ) {
         setError((error as Error).message)
       }
