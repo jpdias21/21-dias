@@ -1,13 +1,26 @@
-import Form from '../components/Form'
+import Login from './Login'
+import CloseAccount from './closeAccount'
+import Registre from './Registre'
 import './Home.css'
-
+import { BrowserRouter, Route, Routes, Link } from 'react-router-dom'
 function App() {
 
 
   return (
     <>
-     <h1>Faça a escolha do que voce deseja</h1>
-     <Form/>
+     <BrowserRouter>
+     <nav>
+    <button><Link to='/'>Home</Link></button>
+    <button><Link to='/Login'>Login</Link></button>
+    <button><Link to='/Registre'>Registre</Link></button>
+    <button><Link to='/CloseAccount'>Close Account</Link></button>
+      <Routes>
+        <Route path='/Login' element={<Login/>}/>
+        <Route path='/Registre' element={<Registre/>}/>
+        <Route path='/CloseAccount' element={<CloseAccount/>}/>
+      </Routes>
+     </nav>
+     </BrowserRouter>
     </>
   )
 }
