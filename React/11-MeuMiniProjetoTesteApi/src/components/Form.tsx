@@ -4,12 +4,11 @@ import { Login } from '../services/authService'
 function Form () {
     const [email, setEmail] = useState<string>('')
     const [passWord, setPassWord] = useState<string>('')
-    const [message, setMessage] = useState<string>('')
-    const [isError, setIsError] = useState<boolean>()
+
   
   const handleLogin = async (event : React.FormEvent) => {
         event.preventDefault()
-        await Login (email, passWord)
+        await Login (email, passWord,)
     }
    
 return (
@@ -22,7 +21,7 @@ return (
         <input type="text" value={passWord} placeholder='Dite sua senha' onChange={(event) => setPassWord(event.target.value)}/>
         <button type='submit'>Login</button>
     </form>
-    {returGod}
+    
     </>
   )
 }

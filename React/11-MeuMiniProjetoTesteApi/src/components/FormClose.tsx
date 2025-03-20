@@ -15,8 +15,12 @@ function FormClose (){
     );
 
     if (user) {
-      console.log('Usuário encontrado. ID:', user.id);
+      console.log('Usuário encontrado. ID:');
       try {
+        console.log(`Seu id:${user.id},
+          Seu Nome: ${user.name}, 
+          Sua email: ${user.email}, 
+          Sua senha :${user.passWord}`)
         axios.delete(`https://apigenerator.dronahq.com/api/04PNM4fR/meuTesteApi/${user.id}`)
         console.log('Usuario deletado com sucesso')
       } catch (error) {

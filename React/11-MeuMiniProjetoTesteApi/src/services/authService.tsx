@@ -1,7 +1,9 @@
 import React from 'react'
 import axios from 'axios'
-import Form from '../components/Form'
+
+
 const API_URL = "https://apigenerator.dronahq.com/api/04PNM4fR/meuTesteApi"
+
 
 export const Registre = async (name : string, email: string, passWord: string)=> {
     try {
@@ -20,12 +22,15 @@ export const Registre = async (name : string, email: string, passWord: string)=>
     (user:any) => user.email === email && user.passWord === passWord
   )
   if(user){
-    console.log('Seu login realizado', user.id)
+    console.log(`Seu login realizado', 
+      Seu id:${user.id},
+      Seu Nome: ${user.name}, 
+      Sua email: ${user.email}, 
+      Sua senha :${user.passWord}`)
     
-    return user.id
   }else{
     console.log('Email ou senha incorretos.');
-    throw new Error("Email ou senha incorretos.")
+    
   }
 
   } catch (error) {
