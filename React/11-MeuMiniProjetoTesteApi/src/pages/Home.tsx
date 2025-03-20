@@ -15,6 +15,9 @@ function App() {
     <button><Link to='/Registre'>Registre</Link></button>
     <button><Link to='/CloseAccount'>Close Account</Link></button>
       <Routes>
+        <Route path='/' element={<>
+        <h1>Faça a sua escolha</h1>
+        </>}/>
         <Route path='/Login' element={<Login/>}/>
         <Route path='/Registre' element={<Registre/>}/>
         <Route path='/CloseAccount' element={<CloseAccount/>}/>
