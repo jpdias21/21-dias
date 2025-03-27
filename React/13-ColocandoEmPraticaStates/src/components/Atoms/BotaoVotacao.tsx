@@ -1,17 +1,20 @@
 import React, { useState } from 'react'
 
-function BotaoVotacao() {
-    const votacao = [1,2,3,4,5,6,7,8,9,10]
-    const [valorEscolhido, setValorEscolhido] = useState<number>(0)
+type BotaoVotacaoProps=  {
+  onVoto : (valor : number) => void
+}
 
-    console.log(valorEscolhido)
+function BotaoVotacao({onVoto} : BotaoVotacaoProps) {
+    const votacao = [1,2,3,4,5,6,7,8,9,10]
+
+    
     return (
     <>
     {votacao.map((valor, index) => (
-        <button key = {index} onClick={()=> setValorEscolhido(valor)}>{valor}</button>
+        <button key = {index} onClick={() => onVoto(valor)}>{valor}</button>
     ))}
     </>
   )
 }
 
-export default BotaoVotacao
+export default BotaoVotacao 

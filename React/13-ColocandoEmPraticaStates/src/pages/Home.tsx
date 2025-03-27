@@ -1,15 +1,14 @@
 
 import './Home.css'
-import BotaoVotacao from '../components/Atoms/BotaoVotacao'
+import Header from '../components/Atoms/Header'
 import TextoCitacao from '../components/Atoms/TextoCitacao'
 function Home() {
 
 
   return (
     <>    
+    <Header/>
     <TextoCitacao/>
-    <BotaoVotacao/>
-     <h1>Ola mundo</h1>
     </>
   )
 }
