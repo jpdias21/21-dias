@@ -1,9 +1,15 @@
-import React from 'react'
-
-function ListaOrdenada() {
-  return (
-    <div>ListaOrdenada</div>
-  )
+// Definindo a interface para as props do componente ListaOrdenada
+interface ListaOrdenadaProps {
+  dadosComAvaliacao: Citacao[];  // Tipagem correta aqui
 }
 
-export default ListaOrdenada
+// Componente ListaOrdenada tipado corretamente
+const ListaOrdenada: React.FC<ListaOrdenadaProps> = ({ dadosComAvaliacao }) => {
+  return (
+    <>
+    
+    </>
+  );
+};
+
+export default ListaOrdenada;

@@ -8,12 +8,13 @@ type Citacao = {
   nota : number ,
   
 }
+
 function TextoCitacao() {
   const [notaSelecionada, setNotaSelecionada] = useState<number>(0)
   const [dadosComAvaliacao, setDadosComAvaliacao] = useState<Citacao[]>([])
   const [mensagem, setMensagem] = useState<string>('')
 
-  const dados: Citacao [] =[
+  const dados: Citacao[] =[
     {autor: 'Joao Pedro', texto: 'O mundo e cruel para aqueles que nao estao preparados', nota : 0}, 
     {autor: 'Renato', texto: 'Livre do mundo', nota : 0}, 
     {autor: 'Gabriel', texto: 'A maioreia e escravo pela propria natureza', nota : 0}, 
@@ -29,19 +30,27 @@ function TextoCitacao() {
       setMensagem('ACABOU --- ACABOU --- ACABOU')
     }
   }
-  
+ 
   const handleClick = (valor : number) => {
     setNotaSelecionada(valor)
 
-    setDadosComAvaliacao((prev) => [
-      ...prev, {
-        autor : dados[indiceAtual].autor,
-        texto : dados[indiceAtual].texto,
-        nota : valor
-      }
-    ])
+    setDadosComAvaliacao((prev) => { 
+    const jaAvaliado = prev.find((event) => event.autor === dados[indiceAtual].autor )
    
-  
+    if(jaAvaliado){
+      return prev.map((event) =>
+      event.autor === dados[indiceAtual].autor ? {...event, nota: valor} : event)
+    }else{
+      return [
+      ...prev , {
+       autor : dados[indiceAtual].autor,
+       texto : dados[indiceAtual].texto,
+       nota : valor
+      }
+      ]
+    }}
+  )
+   
   }
   useEffect (()=>{
     console.log(dadosComAvaliacao)
