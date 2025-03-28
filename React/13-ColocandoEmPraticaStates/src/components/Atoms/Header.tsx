@@ -1,11 +1,15 @@
 import React from 'react'
 
-const Header = () => {
+type HeaderProps = {
+  OnIniciar: () => void
+}
+
+const Header = ({OnIniciar} : HeaderProps) => {
   return (
     <>
     <h1>Seja bem vindo</h1>
     <br />
-    <button>Iniciar a votacao</button>
+    <button onClick={OnIniciar}>Iniciar a votacao</button>
     </>
   )
 }
