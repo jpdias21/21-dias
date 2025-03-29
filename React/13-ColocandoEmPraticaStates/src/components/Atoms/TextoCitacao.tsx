@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import BotaoVotacao from './BotaoVotacao'
 import ListaOrdenada from './ListaOrdenada'
 
-type Citacao = {
+export type Citacao = {
   autor : string,
   texto : string,
   nota : number ,
@@ -73,5 +73,6 @@ function TextoCitacao() {
     </>
   )
 }
+
 
 export default TextoCitacao

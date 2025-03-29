@@ -1,10 +1,12 @@
-// Definindo a interface para as props do componente ListaOrdenada
-interface ListaOrdenadaProps {
-  dadosComAvaliacao: Citacao[];  // Tipagem correta aqui
+import { Citacao } from "./TextoCitacao"; 
+
+type ListaOrdenadaProps = {
+  dadosComAvaliacao: Citacao[];
 }
 
-// Componente ListaOrdenada tipado corretamente
-const ListaOrdenada: React.FC<ListaOrdenadaProps> = ({ dadosComAvaliacao }) => {
+function ListaOrdenada({ dadosComAvaliacao }: ListaOrdenadaProps){
+  const ordenada = dadosComAvaliacao.sort((a,b) => a.nota - b.nota)
+  console.log(ordenada)
   return (
     <>
     
