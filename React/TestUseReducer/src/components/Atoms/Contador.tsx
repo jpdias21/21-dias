@@ -1,29 +1,47 @@
 import React, { useReducer } from 'react'
 
-const mealheiroInicial = {moedas : 0}
+type Estado = {
+    moedas : number,
+    showText : boolean,
+    moedas1 : number,
+    showText1 : boolean
+}
 
-type Acoes = {type : 'Aumentar'} |{type : 'Dimiuir'}
+const estadoInicial : Estado = {
+    moedas : 0 , 
+    showText : true, 
+    moedas1 : 0, 
+    showText1: true, 
+}
 
-function reducer(moalheiro : {moedas : number}, acao :Acoes){
+type Acoes =  {type : "AlterarTudo"}
+
+function reducer(estado : typeof estadoInicial, acao :Acoes){
 switch (acao.type) {
-    case 'Aumentar':
-        return {moedas : moalheiro.moedas + 1}
-    case 'Dimiuir':
-        return {moedas : moalheiro.moedas - 1}
+    case 'AlterarTudo':
+        return {
+            moedas: estado.moedas +1 , 
+            showText : !estado.showText, 
+            moedas1: estado.moedas1 -1, 
+            showText1: !estado.showText1 }
     default:
-        return moalheiro
+        return estado
 } 
 }
 
 function Contador() {
   
-    const [moalheiro, dispatch] = useReducer(reducer, mealheiroInicial);
+    const [estado, dispatch] = useReducer(reducer, estadoInicial);
 
     return (
     <>
-    <p>{moalheiro.moedas}</p>
-    <button onClick={() => dispatch({type: 'Aumentar'})}>Aumentar</button>
-    <button onClick={() => dispatch({type: 'Dimiuir'})}>Dimiuir</button>
+     {estado.showText ? 'Mostrando texto' : ''}
+    <p>{estado.moedas}</p>
+    <br />
+    <button onClick={() => dispatch({type:'AlterarTudo'})}>button</button>
+    <p>{estado.moedas1}</p>
+    <br />
+    {estado.showText1 ? "" : 'Apagou o texto'}
     </>
   )
 }

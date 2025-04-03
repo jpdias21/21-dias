@@ -1,4 +1,5 @@
 import Contador from '../components/Atoms/Contador'
+import NovoContador from '../components/Atoms/NovoContador'
 import './Home.css'
 
 function App() {
@@ -7,6 +8,8 @@ function App() {
   return (
     <>
      <Contador/>
+     <br />
+     <NovoContador/>
     </>
   )
 }
