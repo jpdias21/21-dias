@@ -1,5 +1,5 @@
 import { useState } from 'react'
-
+import Ranking from '../components/Atoms/Ranking'
 import './Home.css'
 
 function App() {
@@ -7,7 +7,7 @@ function App() {
 
   return (
     <>
-     <h1>Joao Pedro</h1>
+     <Ranking/>
     </>
   )
 }
