@@ -1,0 +1,21 @@
+
+$corPrimaria : blue;
+$espacamento : 16px ;
+$corSecundaria: red;
+
+.container{
+  background-color: $corPrimaria;
+  padding: $espacamento;
+  border: 1px solid black;
+  border-radius: 10px;
+  transition: 0.3s background-color;
+  cursor: pointer;
+
+
+  // Efeito active (quando clicado)
+  &:active {
+    background-color: $corSecundaria;
+  }
+}
+
+
