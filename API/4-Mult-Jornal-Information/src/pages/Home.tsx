@@ -1,3 +1,4 @@
+/* https://newsapi.org/ site para pegar a api*/
 import { useEffect, useState } from 'react'
 import './Home.scss'
 import axios from 'axios'
@@ -18,7 +19,7 @@ function Home() {
   
     const mostrar = async () => {
       try {
-        const response = axios.get(`https://newsapi.org/v2/everything?q=tesla&from=2025-03-22&sortBy=publishedAt&apiKey=17a25b5834c448a6bc5e27afc029034d`)
+        const response = axios.get(`https://newsapi.org/v2/everything?q=tesla&from=2025-03-23&sortBy=publishedAt&apiKey=af029d26c40b4e9a907dd69168d12c47`)
        const responseApi = (await response).data
        
        const primeiroArtigo = responseApi.articles[number]
@@ -47,26 +48,37 @@ function Home() {
 
   return (
     <>
-    <button onClick={mostrar}>Passar</button>
+    <div className='boxButton'>
+    <button onClick={mostrar}>Mostrar conteúdo/ Outro conteúdo</button>
+    </div>
     <div className='boxCenter'>
     {dados &&  
     <div>
-    <h1 className='News'>Noticias</h1>
+    <section className='News'>
+    <h1>News Multi-Information</h1>
+    </section>
+
+    <section className='NewsTextImagine'>
     
-     <p className='Tema'>Nome</p>
-     <p>{dados?.name}</p>
-     <p className='Tema'>Autor</p> 
-     <p>{dados?.author}</p>
-    <p className='Tema'>Titulo</p> 
-     <p>{dados?.title}</p> 
-     <p className='Tema'>Description</p>
+    <section >
+    <img src={dados?.urlToImage} alt=""  width='400px'/> 
+    </section >
+
+     <section className='newsText'>
+     <p id='titleNews'>{dados?.title}</p> 
+  
+     <p className='textInformation'>Description</p>
      <p>{dados?.description}</p> 
-     <img src={dados?.urlToImage} alt=""  width='300px'/> 
-     <p className='Tema'>Dada de publicao</p>
-     <p>{dados?.publishedAt}</p> 
-     <p className='Tema'>Conteudo</p> 
+     
+     <p className='textInformation'>Conteudo</p> 
      <p>{dados?.content}</p>
-    
+     <hr />
+     <span className='Obs'> Nome: {dados?.name} | Autor: {dados?.author} | Data:  {dados?.publishedAt} </span>
+     <br />
+     </section>
+
+    </section>
+   
     </div>
 
     }
