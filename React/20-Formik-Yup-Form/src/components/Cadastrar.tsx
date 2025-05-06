@@ -41,7 +41,7 @@ function Cadastrar() {
       validationSchema={valitaion}
       onSubmit={async (values: Values, {resetForm}) => {
         try {
-          const response = await axios.post("https://apigenerator.dronahq.com/api/c5NwQzpP/data", values)
+          const response = await axios.post("http://localhost:5000/api/registro", values)
           console.log('response', response.data)
           resetForm()
           setCadastroRealizado(true)
