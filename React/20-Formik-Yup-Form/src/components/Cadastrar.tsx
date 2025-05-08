@@ -15,6 +15,8 @@ interface Values{
 
 function Cadastrar() {
     const [cadastroRealizado,setCadastroRealizado] = useState<boolean>(false)
+    const [mostrarSenha, setMostrarSenha] = useState<boolean>(false)
+
     const valitaion = Yup.object({
         nome : Yup.string()
         .min(2,'Nome muito curto')
@@ -68,8 +70,9 @@ function Cadastrar() {
           <ErrorMessage name='telefone' component='div'/>
           <br />
           <label>Senha : </label>
-          <Field name='senha' placeholder='Digite uma senha'/>
+          <Field name='senha' type={mostrarSenha ? 'text' : 'password'} placeholder='Digite uma senha' />
           <ErrorMessage name='senha' component='div'/>
+          <button onClick={() => setMostrarSenha(!mostrarSenha)}>Mostrar senha</button>
           <br />
           <br />
           <button type='submit'>Cadastrar</button>
