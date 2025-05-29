@@ -23,6 +23,9 @@ app.get('/cadastro/:id', async (request, response) => {
     const id = request.params.id
     try {
         const {rows} = await pool.query('SELECT * FROM "Carros" WHERE id = $1', [id])
+        if(rows.length === 0){
+            return response.status(400).json({mensagem : 'carro nao encontrado'})
+        }
         response.status(200).json(rows[0])
     } catch (error) {
         console.error(error, 'deu erro')
@@ -75,7 +78,7 @@ app.delete('/cadastro/:id', async(request, response) => {
     const id = request.params.id
 
     try {
-        const {rows} = await pool.query('DELETE * FROM "Carros" WHERE id = $1 RETURNING*', [id])
+        const {rows} = await pool.query('DELETE FROM "Carros" WHERE id = $1 RETURNING*', [id])
         if(rows.length === 0){
             return response.status(400).json({mensagem: 'Carro nao encontrado'})
         }

@@ -13,13 +13,22 @@ interface VeiculoData {
     valor_carro: string;
   }
   
-
 export const cadastroCarro = async (dados : VeiculoData) => {
     const response = await axios.post(`${API}/cadastro`, dados)
     return response.data
 }
 
 export const buscarPeloId = async(id : string) => {
-  const response = await axios.get(`/cadastro/:${id}`)
+  const response = await axios.get(`${API}/cadastro/${id}`)
+  return response.data
+}
+
+export const apagarDadosDoCarro = async (id : string) => {
+  const response = await axios.delete(`${API}/cadastro/${id}`)
+  return response
+}
+
+export const mostrarTodosCarrosDisponiveis = async () => {
+  const response = await axios.get(`${API}/cadastro`)
   return response.data
 }
