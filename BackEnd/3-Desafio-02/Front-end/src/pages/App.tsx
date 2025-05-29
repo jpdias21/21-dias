@@ -1,5 +1,6 @@
-import { BrowserRouter, Route, Routes, Link } from 'react-router-dom'
+import { BrowserRouter, Route, Routes} from 'react-router-dom'
 import RegisterVehicle from '../shared/components/Molecules/RegisterVehicle'
+import BuscarPeloId from '../shared/components/Atoms/BuscarPeloId'
 import './App.scss'
 
 function App() {
@@ -9,7 +10,7 @@ function App() {
     <>
     <BrowserRouter>
       <Routes>
-          <Route path='/' element={<RegisterVehicle/>}/>
+          <Route path='/' element={<BuscarPeloId/>}/>
       </Routes>
     </BrowserRouter>
     </>

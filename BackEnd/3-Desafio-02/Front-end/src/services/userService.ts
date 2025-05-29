@@ -18,3 +18,8 @@ export const cadastroCarro = async (dados : VeiculoData) => {
     const response = await axios.post(`${API}/cadastro`, dados)
     return response.data
 }
+
+export const buscarPeloId = async(id : string) => {
+  const response = await axios.get(`/cadastro/:${id}`)
+  return response.data
+}
