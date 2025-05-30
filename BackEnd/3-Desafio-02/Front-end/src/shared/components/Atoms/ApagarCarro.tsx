@@ -32,8 +32,9 @@ function ApagarCarro() {
      const apagarDadosCarro = async(event :any) => {
         event.preventDefault()
         try {
-            const response = await apagarDadosDoCarro(id)
+            const response :any = await apagarDadosDoCarro(id)
             setCarroApagado(true)
+            setCarro(response)
             setCarro(null)
         } catch (error) {
         console.error('Seu erro', error)
