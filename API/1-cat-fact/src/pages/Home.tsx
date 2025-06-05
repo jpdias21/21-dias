@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import './Home.css'
 
 function Home() {
-
+//a/
   const[fatogato,setFatoGato] = useState()
 
   const buscarFato = () =>{
