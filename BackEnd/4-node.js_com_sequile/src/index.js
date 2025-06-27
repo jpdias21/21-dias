@@ -2,7 +2,11 @@ const express = require('express')
 const app = express()
 const PORT = 3000
 const sequelize = require('./db')
+const cors = require('cors')
 
+app.use(cors({
+  origin: 'http://localhost:5173'
+}))
 app.use(express.json())
 
 ///chamando 
@@ -13,7 +17,7 @@ app.post('/cadastro', userControlerCriateAccount.userProfile
 )
 
 app.post('/login', userControllerLogin.userController
-  
+
 )
 
 app.listen(PORT, () => {
